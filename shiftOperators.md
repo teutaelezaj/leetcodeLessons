@@ -42,9 +42,8 @@ Explanation: The input binary string 00000000000000000000000010000000 has a tota
 **Solution**
 ```
 public class Solution {
-    // you need to treat n as an unsigned value
-   public int hammingWeight(int n) {
-    int bits = 0;
+   public int hammingWeight(int n) { 
+    int bits = 0; 
     int mask = 1;
     for (int i = 0; i < 32; i++) { //32 bits long
         if ((n & mask) != 0) { 
@@ -56,6 +55,9 @@ public class Solution {
     }
 }
 ```
+You could also do 
+`return Integer.bitCount(n);`
+Which returns the count of the number of one-bits in the two’s complement binary representation of an int value. 
 
 
 
