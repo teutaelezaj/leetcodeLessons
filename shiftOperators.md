@@ -47,9 +47,9 @@ public class Solution {
     int mask = 1;
     for (int i = 0; i < 32; i++) { //32 bits long
         if ((n & mask) != 0) { 
-            bits++; //increment up
+            bits++; 
         }
-        mask <<= 1; //shift to the left by one
+        mask <<= 1; 
     }
     return bits;
     }
