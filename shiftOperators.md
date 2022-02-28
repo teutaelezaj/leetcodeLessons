@@ -70,5 +70,7 @@ And so on.
 
 You could also do `return Integer.bitCount(n);` which returns the count of the number of one-bits in the two’s complement binary representation of an int value. 
 
+Time complexity = O(1)
+Space complexity = O(1)
 
 
