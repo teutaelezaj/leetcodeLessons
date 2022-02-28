@@ -24,4 +24,38 @@ int b = a >> 2; // 1 1 0 -> removes the last 2 values, value is now 6
 System.out.println(b)
 Output = 6
 ```
+## Leetcode "Number of 1 Bits"
+Write a function that takes an unsigned integer and returns the number of '1' bits it has (also known as the Hamming weight).
+
+```
+Input: n = 00000000000000000000000000001011
+Output: 3
+Explanation: The input binary string 00000000000000000000000000001011 has a total of three '1' bits.
+```
+
+```
+Input: n = 00000000000000000000000010000000
+Output: 1
+Explanation: The input binary string 00000000000000000000000010000000 has a total of one '1' bit.
+```
+
+**Solution**
+```
+public class Solution {
+    // you need to treat n as an unsigned value
+   public int hammingWeight(int n) {
+    int bits = 0;
+    int mask = 1;
+    for (int i = 0; i < 32; i++) { //32 bits long
+        if ((n & mask) != 0) { 
+            bits++; //increment up
+        }
+        mask <<= 1; //shift to the left by one
+    }
+    return bits;
+    }
+}
+```
+
+
 
