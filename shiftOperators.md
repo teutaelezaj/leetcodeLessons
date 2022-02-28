@@ -55,9 +55,9 @@ public class Solution {
     }
 }
 ```
-You could also do 
-`return Integer.bitCount(n);`
-Which returns the count of the number of one-bits in the two’s complement binary representation of an int value. 
+`mask <<= 1` is just shorthand for `mask = mask << 1`
+
+You could also do `return Integer.bitCount(n);` Which returns the count of the number of one-bits in the two’s complement binary representation of an int value. 
 
 
 
