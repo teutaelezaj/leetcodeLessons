@@ -55,6 +55,17 @@ public class Solution {
     }
 }
 ```
+
+We check each of the 32 bits of the number. If the bit is 1, we add one to the number of 1-bits.
+
+We can check the i^th bit of a number using a bit mask. We start with a mask m=1, because the binary representation of 1 is 00000000000000000000000000000001. Clearly, a logical AND between any number and the mask 1 gives us the least significant bit of this number. To check the next bit, we shift the mask to the left by one.
+
+00000000000000000000000000000010
+00000000000000000000000000000010
+
+And so on.
+
+**Notes:**
 `mask <<= 1` is just shorthand for `mask = mask << 1`
 
 You could also do `return Integer.bitCount(n);` which returns the count of the number of one-bits in the two’s complement binary representation of an int value. 
