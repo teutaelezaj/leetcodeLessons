@@ -16,7 +16,5 @@ int b = a >> 2; // 1 0 -> removes 2 zeros, value is now 2
  
 System.out.println(b)
 Output = 2
-
-
 ```
 
