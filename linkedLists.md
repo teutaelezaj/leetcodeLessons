@@ -573,20 +573,22 @@ You are given two linked lists: list1 and list2 of sizes n and m respectively. R
 ![fig1](https://user-images.githubusercontent.com/76460786/156239828-fc0fb013-5cb2-4072-836d-fe1e2c88e84c.png)
 
 _Example 1:_ 
-![merge_linked_list_ex1](https://user-images.githubusercontent.com/76460786/156239934-d3565176-9179-47a9-86a9-5102018dfa90.png)
+
 ```
 Input: list1 = [0,1,2,3,4,5], a = 3, b = 4, list2 = [1000000,1000001,1000002]
 Output: [0,1,2,1000000,1000001,1000002,5]
 Explanation: We remove the nodes 3 and 4 and put the entire list2 in their place. The blue edges and nodes in the above figure indicate the result.
 ```
+![merge_linked_list_ex1](https://user-images.githubusercontent.com/76460786/156239934-d3565176-9179-47a9-86a9-5102018dfa90.png)
 
 _Example 2:_ 
-![merge_linked_list_ex2](https://user-images.githubusercontent.com/76460786/156239973-32891af9-2bbd-4051-a66b-30423fed13fa.png)
+
 ```
 Input: list1 = [0,1,2,3,4,5,6], a = 2, b = 5, list2 = [1000000,1000001,1000002,1000003,1000004]
 Output: [0,1,1000000,1000001,1000002,1000003,1000004,6]
 Explanation: The blue edges and nodes in the above figure indicate the result.
 ```
+![merge_linked_list_ex2](https://user-images.githubusercontent.com/76460786/156239973-32891af9-2bbd-4051-a66b-30423fed13fa.png)
 
 **Solution:**
 ```
