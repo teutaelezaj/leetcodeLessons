@@ -291,5 +291,42 @@ In this case, the order of the nodes will be:
 
 `6 4 8 3 5 7 9`
 
+# Leetcode Question - Univalued Binary Tree
+
+A binary tree is uni-valued if every node in the tree has the same value. Given the root of a binary tree, return true if the given tree is uni-valued, or false otherwise.
+
+![unival_bst_1](https://user-images.githubusercontent.com/76460786/156218491-9f80998c-ed11-42dc-a188-0041bc193cda.png)
+```
+Input: root = [1,1,1,1,1,null,1]
+Output: true
+```
+
+![unival_bst_2](https://user-images.githubusercontent.com/76460786/156218568-fc0c10df-6d38-4242-a4d4-7481b29310b4.png)
+```
+Input: root = [2,2,2,5,2]
+Output: false
+```
+---
+
+```
+class Solution {
+    public boolean isUnivalTree(TreeNode root) {
+            if(root == null)
+        return true;
+    
+    if(root.left != null)
+        if(root.val != root.left.val)
+            return false;
+    
+    if(root.right != null)
+        if(root.val != root.right.val)
+            return false;
+    
+    return isUnivalTree(root.left) && isUnivalTree(root.right);
+}
+    }
+
+
+```
 
 
