@@ -214,7 +214,7 @@ public void givenABinaryTree_WhenDeletingElements_ThenTreeDoesNotContainThoseEle
 a. Depth-First Search: a type of traversal that goes deep as much as possible in every child before exploring the next sibling.
 There are several ways to perform a depth-first search: #in-order, pre-order and post-order#.
 
-The ##in-order## traversal consists of first visiting the left sub-tree, then the root node, and finally the right sub-tree:
+The **in-order** traversal consists of first visiting the left sub-tree, then the root node, and finally the right sub-tree:
 ```
 public void traverseInOrder(Node node) {
     if (node != null) {
@@ -229,7 +229,7 @@ If we call this method, the console output will show the in-order traversal:
 
 `3 4 5 6 7 8 9`
 
-##Pre-order## traversal visits first the root node, then the left sub-tree, and finally the right sub-tree:
+**Pre-order** traversal visits first the root node, then the left sub-tree, and finally the right sub-tree:
 
 ```
 public void traversePreOrder(Node node) {
@@ -244,7 +244,7 @@ Let's check the pre-order traversal in the console output:
 
 `6 4 3 5 8 7 9`
 
-##Post-order## traversal visits the left sub-tree, the right subt-ree, and the root node at the end:
+**Post-order** traversal visits the left sub-tree, the right subt-ree, and the root node at the end:
 ```
 public void traversePostOrder(Node node) {
     if (node != null) {
