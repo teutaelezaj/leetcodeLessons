@@ -369,6 +369,8 @@ To delete a node from the linked list, we need to do the following steps.
 2) Change the next of the previous node. 
 3) Free memory for the node to be deleted.
 
+![Linkedlist_deletion](https://user-images.githubusercontent.com/76460786/156239577-7a5e5c5d-e3be-4642-ac95-08f503eaddb6.png)
+
 ```
 // A complete working Java program
 // to demonstrate deletion
@@ -474,6 +476,8 @@ _Steps in deleting a node via recursive method_
 4) Store this node to deallocate it later using the free() function.
 5) Change this node pointer so that it points to its next and by performing this previous node’s next also gets properly linked.
 
+![Untitleddesign](https://user-images.githubusercontent.com/76460786/156239550-bf1c768f-13f3-4b0f-b781-100c7ad2dc05.png)
+
 _Example Problem:_ Given a singly linked list, delete a node at the kth position without using the loop.
 ```
 Input : list = 9->8->3->5->2->1 
@@ -488,7 +492,7 @@ Output : 0->0->6->2->3
 
 ```// Recursive Java program to delete k-th node
 // of a linked list
-class GFG
+class removalNode
 {
 	
 static class Node
