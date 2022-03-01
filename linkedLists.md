@@ -360,3 +360,208 @@ class LinkedList
 ```
 `Output = 1 7 8 6 4`
 
+## Deleting a Node
+Problem Statement: _Given a ‘key’, delete the first occurrence of this key in the linked list._
+
+**Iterative Method:**
+To delete a node from the linked list, we need to do the following steps. 
+1) Find the previous node of the node to be deleted. 
+2) Change the next of the previous node. 
+3) Free memory for the node to be deleted.
+
+```
+// A complete working Java program
+// to demonstrate deletion
+// in singly linked list
+class LinkedList {
+    Node head; // head of list
+ 
+    /* Linked list Node*/
+    class Node {
+        int data;
+        Node next;
+        Node(int d)
+        {
+            data = d;
+            next = null;
+        }
+    }
+ 
+    /* Given a key, deletes the first
+       occurrence of key in
+     * linked list */
+    void deleteNode(int key)
+    {
+        // Store head node
+        Node temp = head, prev = null;
+ 
+        // If head node itself holds the key to be deleted
+        if (temp != null && temp.data == key) {
+            head = temp.next; // Changed head
+            return;
+        }
+ 
+        // Search for the key to be deleted, keep track of
+        // the previous node as we need to change temp.next
+        while (temp != null && temp.data != key) {
+            prev = temp;
+            temp = temp.next;
+        }
+ 
+        // If key was not present in linked list
+        if (temp == null)
+            return;
+ 
+        // Unlink the node from linked list
+        prev.next = temp.next;
+    }
+ 
+    /* Inserts a new Node at front of the list. */
+    public void push(int new_data)
+    {
+        Node new_node = new Node(new_data);
+        new_node.next = head;
+        head = new_node;
+    }
+ 
+    /* This function prints contents of linked list starting
+       from the given node */
+    public void printList()
+    {
+        Node tnode = head;
+        while (tnode != null) {
+            System.out.print(tnode.data + " ");
+            tnode = tnode.next;
+        }
+    }
+ 
+    /* Driver program to test above functions. Ideally this
+    function should be in a separate user class. It is kept
+    here to keep code compact */
+    public static void main(String[] args)
+    {
+        LinkedList llist = new LinkedList();
+ 
+        llist.push(7);
+        llist.push(1);
+        llist.push(3);
+        llist.push(2);
+ 
+        System.out.println("\nCreated Linked list is:");
+        llist.printList();
+ 
+        llist.deleteNode(1); // Delete node with data 1
+ 
+        System.out.println(
+            "\nLinked List after Deletion of 1:");
+        llist.printList();
+    }
+}
+```
+```
+Output: 
+Created Linked List: 
+ 2  3  1  7 
+Linked List after Deletion of 1: 
+ 2  3  7
+ ```
+ 
+**Recursive Method:**
+_Steps in deleting a node via recursive method_
+1) We pass node* (node pointer) as a reference to the function (as in node* &head)
+2) Now since the current node pointer is derived from the previous node’s next (which is passed by reference) so now if the value of the current node pointer is changed, the previous next node’s value also gets changed which is the required operation while deleting a node (i.e points previous node’s next to current node’s (containing key) next).
+3) Find the node containing the given value.
+4) Store this node to deallocate it later using the free() function.
+5) Change this node pointer so that it points to its next and by performing this previous node’s next also gets properly linked.
+
+_Example Problem:_ Given a singly linked list, delete a node at the kth position without using the loop.
+```
+Input : list = 9->8->3->5->2->1 
+          k = 4
+Output : 9->8->3->2->1 
+```
+```
+Input  : list = 0->0->1->6->2->3 
+            k = 3
+Output : 0->0->6->2->3  
+```
+
+```// Recursive Java program to delete k-th node
+// of a linked list
+class GFG
+{
+	
+static class Node
+{
+	int data;
+	Node next;
+};
+
+// Deletes k-th node and returns new header.
+static Node deleteNode(Node start, int k)
+{
+	// If invalid k
+	if (k < 1)
+	return start;
+
+	// If linked list is empty
+	if (start == null)
+	return null;
+
+	// Base case (start needs to be deleted)
+	if (k == 1)
+	{
+		Node res = start.next;
+		return res;
+	}
+	
+	start.next = deleteNode(start.next, k-1);
+	return start;
+}
+
+// Utility function to insert a node at the beginning /
+static Node push( Node head_ref, int new_data)
+{
+	Node new_node = new Node();
+	new_node.data = new_data;
+	new_node.next = head_ref;
+	head_ref = new_node;
+	return head_ref;
+}
+
+// Utility function to print a linked list /
+static void printList( Node head)
+{
+	while (head!=null)
+	{
+		System.out.print(head.data + " ");
+		head = head.next;
+	}
+	System.out.printf("\n");
+}
+
+// Driver program to test above functions /
+public static void main(String args[])
+{
+	Node head = null;
+
+	// Create following linked list
+	//12.15.10.11.5.6.2.3 /
+	head=push(head,3);
+	head=push(head,2);
+	head=push(head,6);
+	head=push(head,5);
+	head=push(head,11);
+	head=push(head,10);
+	head=push(head,15);
+	head=push(head,12);
+	
+	int k = 3;
+	head = deleteNode(head, k);
+
+	System.out.printf("\nModified Linked List: ");
+	printList(head);
+}
+}
+```
+
